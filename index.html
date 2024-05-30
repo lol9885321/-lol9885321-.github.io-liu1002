@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .explode {
+            animation: explode 0.5s forwards;
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(10);
+                opacity: 0;
+            }
+        }
+    .item label {
+            text-align: left;
+        }
+    </style>
+    <title>環島物品清單</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7f7f7;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .item:hover {
+            background-color: #f0f0f0;
+        }
+        .item input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .item label {
+            margin-left: 10px;
+            flex-grow: 1;
+            cursor: pointer;
+        }
+        .checked label {
+            text-decoration: line-through;
+            color: #7f8c8d;
+        }
+        button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #3498db;
+        }
+        #image {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>環島物品清單</h1>
+    <img id="image" src="" style="display: none;">
+    <button onclick="resetChecklist()">重置清單</button>
+    <button onclick="saveState()">儲存清單</button>
+    <button onclick="shareChecklist()">分享清單</button>
+    <button onclick="explodeText()">請點我!</button>
+
+    <div id="explodingTextContainer"></div>
+    <div style="height: 20px;"></div>
+    <h2>必帶的物品</h2>
+    <div id="essential-items">
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential">
+            <label for="essential">身分證、學生證、駕照、健保卡</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential2">
+            <label for="essential2">現金跟信用卡</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential3">
+            <label for="essential3">行動電源、充電線、充電頭</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential6">
+            <label for="essential6">衛生紙、濕紙巾</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential7">
+            <label for="essential7">個人藥品</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential8">
+            <label for="essential8">短袖上衣：4-5件</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential9">
+            <label for="essential9">輕便長袖：1-2件</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential10">
+            <label for="essential10">短褲：2-3條</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential11">
+            <label for="essential11">長褲：1-2條</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential12">
+            <label for="essential12">襪子：5-6雙</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential13">
+            <label for="essential13">毛巾：3-4條</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential14">
+            <label for="essential14">防摔手套</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential15">
+            <label for="essential15">帽子</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential16">
+            <label for="essential16">雨衣雨褲</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential17">
+            <label for="essential17">能裝下所有日常必需品且輕便的背包</label>
+        </div>
+	<div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential18">
+            <label for="essential18">藍牙耳機</label>
+        </div>
+	<div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="essential19">
+            <label for="essential19">藍牙耳機(安全帽)</label>
+        </div>
+
+    </div>
+    <h2>非必要的物品</h2>
+    <div id="optional-items">
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional1">
+            <label for="optional1">泳褲</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional2">
+            <label for="optional2">急救包</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional3">
+            <label for="optional3">口香糖</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional4">
+            <label for="optional4">水壺</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional5">
+            <label for="optional5">零食</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional6">
+            <label for="optional6">垃圾袋</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional7">
+            <label for="optional7">多用途小工具</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional8">
+            <label for="optional8">相機、單眼相機、空拍機、攝影設備</label>
+        </div>
+	<div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optional9">
+            <label for="optional9">防曬乳、防曬噴霧、抗UV外套</label>
+        </div>
+	<div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="optiona20">
+            <label for="optiona20">牙刷、牙膏、洗髮水、沐浴露</label>
+        </div>
+    </div>
+    <h2>人員名單</h2>
+    <div id="people-list">
+        <div class="item">
+            <input type="checkbox" id="person1">
+            <label for="person1">李承諭</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person2">
+            <label for="person2">余彥圻</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person3">
+            <label for="person3">游康宥</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person4">
+            <label for="person4">游士弦</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person5">
+            <label for="person5">王隆豪</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person6">
+            <label for="person6">王紹堂</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person7">
+            <label for="person7">劉宇翔</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person8">
+            <label for="person8">陳綵瑜</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person9">
+            <label for="person9">范詒婷</label>
+        </div>
+        <div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person10">
+            <label for="person10">張芷晴</label>
+        </div>
+	<div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person11">
+            <label for="person11">陳冠伃</label>
+        </div>
+	<div class="item">
+            <input type="checkbox" onclick="toggleCheck(this)" id="person12">
+            <label for="person12">莊士霆</label>
+        </div>
+    </div>
+    <script>
+        var explodingTextContainer = document.getElementById('explodingTextContainer');
+
+        function explodeText() {
+            var explodingText = document.createElement('div');
+            explodingText.textContent = '_liu_1002';
+            explodingText.classList.add('explode');
+            explodingTextContainer.appendChild(explodingText);
+
+            setTimeout(function() {
+                explodingText.remove();
+            }, 500);
+        }
+
+        function toggleCheck(checkbox) {
+            const item = checkbox.parentElement;
+            item.classList.toggle('checked');
+            saveState();
+        }
+
+        function saveState() {
+            const items = document.querySelectorAll('.item');
+            const state = Array.from(items).map(item => ({
+                id: item.querySelector('input').id,
+                checked: item.classList.contains('checked')
+            }));
+            localStorage.setItem('checklistState', JSON.stringify(state));
+        }
+
+        function loadState() {
+            const state = JSON.parse(localStorage.getItem('checklistState'));
+            if (state) {
+                state.forEach(({ id, checked }) => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        const item = checkbox.parentElement;
+                        if (checked) {
+                            item.classList.add('checked');
+                            checkbox.checked = true;
+                        } else {
+                            item.classList.remove('checked');
+                            checkbox.checked = false;
+                        }
+                    }
+                });
+            }
+        }
+
+        function resetChecklist() {
+            const checkboxes = document.querySelectorAll('.item input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.parentElement.classList.remove('checked');
+            });
+            localStorage.removeItem('checklistState');
+        }
+
+        function shareChecklist() {
+            const state = localStorage.getItem('checklistState');
+            const url = new URL(window.location);
+            url.searchParams.set('state', encodeURIComponent(state));
+            prompt("分享此連結:", url.toString());
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadState();
+        });
+    </script>
+</body>
+</html>
